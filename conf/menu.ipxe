@@ -1,0 +1,27 @@
+#!ipxe
+dhcp
+echo Boot
+menu Menu
+item debian Debian Netboot (7.4)
+item fedora Fedora 20
+item ubuntu Ubuntu 17.04
+item clonezilla Clonezilla
+item xyz XYZ
+
+choose os && goto ${os}
+#:something is a 'goto' label.
+
+:debian
+sanboot http://youserver/mini.iso
+
+:fedora
+sanboot http://fedora.c3sl.ufpr.br/linux/releases/25/Workstation/x86_64/iso/Fedora-Workstation-netinst-x86_64-25-1.3.iso
+
+:ubuntu
+sanboot http://archive.ubuntu.com/ubuntu/dists/zesty/main/installer-amd64/current/images/netboot/mini.iso
+
+:clonezilla
+sanboot http://youserver/clonezilla.iso
+
+:xyz
+sanboot http://youserver/netboot.xyz.iso

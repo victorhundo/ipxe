@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+    ipxe:
+        build: ./
+        image: ipxe:latest
+        ports:
+            - "69:69/udp"
+        restart: always
+        volumes:
+            - ./conf:/ipxe/conf
